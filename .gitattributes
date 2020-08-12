@@ -1,0 +1,28 @@
+# This file tells Git how to handle text and binary (non-text) files.
+
+# Text files are always stored with Unix-style line endings in the repository,
+# but you can specify a different style to use in the working directory.
+
+# Default: Let Git decide whether files are text or binary.
+*               text=auto
+
+# Text files: Checkout system line endings (or follow `git config core.eol`)
+*.txt           text
+*.md            text
+*.py            text
+
+
+## Shell scripts: Checkout with Unix line endings.
+*.sh            text    eol=lf
+
+
+## Batch files: Checkout with DOS line endings.
+*.bat           text    eol=crlf
+*.cmd           text    eol=crlf
+
+
+# Binary files: Don't mess with line endings on checkout or checkin.
+*.pdf           binary
+*.png           binary
+*.jpg           binary
+

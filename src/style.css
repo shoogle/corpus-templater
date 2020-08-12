@@ -1,0 +1,12 @@
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+#log-container { overflow: scroll; flex-grow: 1; }
+
+.log-warn { color: orange; font-weight: bold; }
+.log-error { color: red; font-weight: bold; }
+.log-info { color: steelblue }
+.log-log { color: gray }

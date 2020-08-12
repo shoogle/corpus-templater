@@ -1,0 +1,16 @@
+# This file tells Git which files and directories should never be committed.
+# These are files that we don't want to upload and share with other developers.
+
+
+# Backup and autosave files
+*~
+.mscbackup
+.*,
+
+# JavaScript generated files
+*.jsc
+
+# Archives and compressed files
+*.zip
+*.gz
+*.tgz
