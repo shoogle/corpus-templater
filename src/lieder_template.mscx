@@ -181,6 +181,7 @@
     <Staff id="1">
       <VBox>
         <height>10</height>
+        <bottomGap>12</bottomGap>
         <Text>
           <style>User-1</style>
           <text>{{Work Title}}</text>
@@ -201,7 +202,7 @@
           <style>Frame</style>
           <size>8</size>
           <color r="164" g="0" b="0" a="255"/>
-          <offset x="0" y="80"/>
+          <offset x="0" y="88.8194"/>
           <text><b><u>Lieder Corpus style (differences from MuseScore's default style)
 
 </u></b><u></u>Please discuss all changes with the group first. Also consider submitting an issue in MuseScore's tracker to get the default style changed to match ours. (Only do this if
