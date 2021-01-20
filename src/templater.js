@@ -3,7 +3,9 @@ const url_query_string = new URLSearchParams(window.location.search);
 const sid = url_query_string.get('sid');
 const gid = url_query_string.get('gid');
 
-const spreadsheet_url = "https://cors-anywhere.herokuapp.com/https://docs.google.com/spreadsheets/d/" + sid + "/export?gid=" + gid + "&format=csv";
+
+const spreadsheet_url = "https://docs.google.com/spreadsheets/d/" + sid + "/export?gid=" + gid + "&format=csv";
+//const spreadsheet_url = "https://cors-anywhere.herokuapp.com/ + spreadsheet_url; // use if CORS header missing
 //const spreadsheet_url = "songs.csv";
 
 const headings_row = 4;
