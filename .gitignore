@@ -1,6 +1,8 @@
 # This file tells Git which files and directories should never be committed.
 # These are files that we don't want to upload and share with other developers.
 
+# Cached data for offline testing
+/data/
 
 # Backup and autosave files
 *~

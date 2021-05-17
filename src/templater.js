@@ -1,45 +1,72 @@
 const url_query_string = new URLSearchParams(window.location.search);
 
+const corpus = url_query_string.get('corpus');
 const sid = url_query_string.get('sid');
 const gid = url_query_string.get('gid');
-
+const hrow = url_query_string.get('hrow');
 
 const spreadsheet_url = "https://docs.google.com/spreadsheets/d/" + sid + "/export?gid=" + gid + "&format=csv";
-//const spreadsheet_url = "https://cors-anywhere.herokuapp.com/ + spreadsheet_url; // use if CORS header missing
-//const spreadsheet_url = "songs.csv";
+//const spreadsheet_url = "https://cors-anywhere.herokuapp.com/" + spreadsheet_url; // use if CORS header missing
+//const spreadsheet_url = "data/" + corpus + ".csv"; // use for offline development
 
-const headings_row = 4;
+document.title = "Corpus Templater: " + corpus
+document.getElementById("corpus").innerHTML = corpus;
+const headings_row = parseInt(hrow, 10);
 
-let song_row;
-let songs;
-let songs_request;
+let piece_row;
+let pieces;
+let pieces_request;
+let has_lyricist = false;
 
-function replacements(song)
+function romanize(num)
+{
+    if (isNaN(num)) {
+        return NaN;
+    }
+    var digits = String(+num).split(""),
+        key = ["","C","CC","CCC","CD","D","DC","DCC","DCCC","CM",
+               "","X","XX","XXX","XL","L","LX","LXX","LXXX","XC",
+               "","I","II","III","IV","V","VI","VII","VIII","IX"],
+        roman = "",
+        i = 3;
+    while (i--)
+        roman = (key[+digits.pop() + (i * 10)] || "") + roman;
+    return Array(+digits.join("") + 1).join("M") + roman;
+}
+
+function replacements(piece)
 {
     return Object.assign(
-        replacements_generic(song),
-        song["Set"] === "[singles]"
-            ? replacements_single(song)
-            : replacements_cycle(song)
+        replacements_generic(piece),
+        replacements_song(piece),
+        piece["Set"] === "[singles]"
+            ? replacements_single(piece)
+            : replacements_cycle(piece)
     );
 }
 
-function replacements_generic(song)
+function replacements_generic(piece)
 {
     return {
-        "{{Composer}}":           first_name_first(song["Composer"]),
-        "{{Lyricist Score}}":     lyricist(song, true),
-        "{{Lyricist Prop}}":      lyricist(song, false),
-        "{{Movement Number}}":    song["No."] + song["Subdivision"],
-        "{{IMSLP Ref}}":          song["IMSLP Edition #"],
+        "{{Composer}}":           first_name_first(piece["Composer"]),
+        "{{IMSLP Ref}}":          piece["IMSLP #"],
         "{{Today}}":              new Date().toISOString().substring(0, 10),
     }
 }
 
-function replacements_single(song)
+function replacements_song(piece)
 {
     return {
-        "{{Work Title}}":         song["Song / Movement Title"],
+        "{{Lyricist Score}}":   has_lyricist ? lyricist(piece, true) : "",
+        "{{Lyricist Prop}}":    has_lyricist ? lyricist(piece, false) : "",
+    }
+}
+
+function replacements_single(piece)
+{
+    return {
+        "{{Work Title}}":         piece["Piece / Movement"],
+        "{{Movement Number}}":    "",
         "{{Mvt Title Prop}}":     "",
         "{{Mvt Title Score}}":    "Subtitle [optional, delete if not needed]",
         "<style>User-1</style>":  "<style>Title</style>",
@@ -47,23 +74,25 @@ function replacements_single(song)
     }
 }
 
-function replacements_cycle(song)
+function replacements_cycle(piece)
 {
+    num = has_lyricist ? piece["No."] : romanize(parseInt(piece["No."], 10))
     return {
-        "{{Work Title}}":         song["Set"],
-        "{{Mvt Title Prop}}":     song["Song / Movement Title"],
-        "{{Mvt Title Score}}":    song["No."] + song["Subdivision"] + ". " + song["Song / Movement Title"],
+        "{{Work Title}}":         piece["Set"],
+        "{{Movement Number}}":    num + piece["Subdivision"],
+        "{{Mvt Title Prop}}":     piece["Piece / Movement"],
+        "{{Mvt Title Score}}":    num + piece["Subdivision"] + ". " + piece["Piece / Movement"],
     }
 }
 
-function lyricist(song, do_abbreviate_composer)
+function lyricist(piece, do_abbreviate_composer)
 {
-    if (song["IMSLP URL / name"].startsWith("Composer")) {
+    if (piece["Lyricist IMSLP URL / name"].startsWith("Composer")) {
         return do_abbreviate_composer
-            ? '(' + song["Composer"].split(',')[0] + ')' // only surname
-            : first_name_first(song["Composer"]); // full name
+            ? '(' + piece["Composer"].split(',')[0] + ')' // only surname
+            : first_name_first(piece["Composer"]); // full name
     }
-    return first_name_first(imslp_artist(song["IMSLP URL / name"]));
+    return first_name_first(imslp_artist(piece["Lyricist IMSLP URL / name"]));
 }
 
 function first_name_first(name)
@@ -92,6 +121,9 @@ function if_not_equal(val, cmp)
 function spreadsheet_data_by_heading(table, headings_row=1)
 {
     let headings = table[headings_row - 1]; // arrays are zero-indexed
+    if (headings.includes("Lyricist IMSLP URL / name")) {
+        has_lyricist = true;
+    }
     rows = [];
     for (let entry of table.slice(headings_row)) {
         data = {};
@@ -121,25 +153,25 @@ function download_text_file(filename, text) {
     document.body.removeChild(element);
 }
 
-function process(songs_sheet) {
-    let table = $.csv.toArrays(songs_sheet);
-    songs = spreadsheet_data_by_heading(table, headings_row);
+function process(pieces_sheet) {
+    let table = $.csv.toArrays(pieces_sheet);
+    pieces = spreadsheet_data_by_heading(table, headings_row);
 }
 
 async function proceed(text)
 {
-    await songs_request;
-    console.log("Creating template... (Row = " + song_row + ")");
-    let song = songs[song_row - headings_row - 1]; // arrays are zero-indexed
-    for (const [key, value] of Object.entries(replacements(song))) {
+    await pieces_request;
+    console.log("Creating template... (Row = " + piece_row + ")");
+    let piece = pieces[piece_row - headings_row - 1]; // arrays are zero-indexed
+    for (const [key, value] of Object.entries(replacements(piece))) {
         text = text.replace(new RegExp(key, 'g'), value);
     }
     let sep = " – "; // en dash (Unicode)
-    let fname = song["Composer"] + sep;
-    if (song["Set"] !== "[singles]") {
-        fname += song["Set"] + ", No." + song["No."] + song["Subdivision"] + sep;
+    let fname = piece["Composer"] + sep;
+    if (piece["Set"] !== "[singles]") {
+        fname += piece["Set"] + ", No." + piece["No."] + piece["Subdivision"] + sep;
     }
-    fname += song["Song / Movement Title"];
+    fname += piece["Piece / Movement"];
     console.log("Created template: " + fname);
     download_text_file(fname + ".mscx", text);
     console.info("Enter a new row number to create another template. Do not \
@@ -148,23 +180,23 @@ refresh the page unless you need to fetch an updated copy of the spreadsheet.");
 
 function create()
 {
-    if (sid === null || gid === null) {
-        console.error("Error: Must include 'sid' and 'gid' in URL query string.");
+    if (corpus === null || sid === null || gid === null || hrow === null) {
+        console.error("Error: Must include 'corpus', 'sid', 'gid' and 'row' in URL query string.");
         return;
     }
 
     let rownum = document.getElementById('rownum').value;
-    song_row = parseInt(rownum, 10);
+    piece_row = parseInt(rownum, 10);
 
-    if (!rownum || song_row <= headings_row) {
+    if (!rownum || piece_row <= headings_row) {
         console.error("Error: Must specify a valid row number greater than " + headings_row);
         return;
     }
 
-    if (songs === undefined) {
+    if (pieces === undefined) {
         console.log("Fetching spreadsheet... This may take a few moments.");
-        songs_request = fetch_text_file(spreadsheet_url, process);
+        pieces_request = fetch_text_file(spreadsheet_url, process);
     }
 
-    fetch_text_file("src/lieder_template.mscx", proceed);
+    fetch_text_file("templates/" + corpus + ".mscx", proceed);
 }
