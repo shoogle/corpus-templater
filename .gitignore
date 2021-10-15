@@ -16,3 +16,6 @@
 *.zip
 *.gz
 *.tgz
+
+# System files
+.DS_Store
