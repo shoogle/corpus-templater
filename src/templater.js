@@ -168,10 +168,15 @@ async function proceed(text)
     }
     let sep = " – "; // en dash (Unicode)
     let fname = piece["Composer"] + sep;
-    if (piece["Set"] !== "[singles]") {
-        fname += piece["Set"] + ", No." + piece["No."] + piece["Subdivision"] + sep;
+    if (corpus === "string-quartets") {
+        fname += piece["Set"] + sep; // Set name is work name. All movements in one file.
+    } else {
+        if (piece["Set"] !== "[singles]") {
+            fname += piece["Set"] + ", No." + piece["No."] + piece["Subdivision"] + sep;
+        }
+        fname += piece["Piece / Movement"] + sep;
     }
-    fname += piece["Piece / Movement"];
+    fname += "TEMPLATE"
     console.log("Created template: " + fname);
     download_text_file(fname + ".mscx", text);
     console.info("Enter a new row number to create another template. Do not \
