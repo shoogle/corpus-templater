@@ -48,9 +48,10 @@ function replacements(piece)
 function replacements_generic(piece)
 {
     return {
-        "{{Composer}}":           first_name_first(piece["Composer"]),
-        "{{IMSLP Ref}}":          piece["IMSLP #"],
-        "{{Today}}":              new Date().toISOString().substring(0, 10),
+        "{{Composer}}":             first_name_first(piece["Composer"]),
+        "{{Composer abbr.}}":       abbreviate_artist_name(piece["Composer"]),
+        "{{IMSLP Ref}}":            piece["IMSLP #"],
+        "{{Today}}":                new Date().toISOString().substring(0, 10),
     }
 }
 
@@ -76,13 +77,27 @@ function replacements_single(piece)
 
 function replacements_cycle(piece)
 {
-    num = has_lyricist ? piece["No."] : romanize(parseInt(piece["No."], 10))
-    return {
-        "{{Work Title}}":         piece["Set"],
-        "{{Movement Number}}":    num + piece["Subdivision"],
-        "{{Mvt Title Prop}}":     piece["Piece / Movement"],
-        "{{Mvt Title Score}}":    num + piece["Subdivision"] + ". " + piece["Piece / Movement"],
+    // numbering: songs use Arabic numbers, movements use Roman numerals
+    let num = has_lyricist ? piece["No."] : romanize(parseInt(piece["No."], 10))
+
+    let commaIdx = piece["Set"].indexOf(", ");
+    let running_header_title = "$:workNumber:"
+
+    if (commaIdx < 0) {
+        // piece has no work number
+        commaIdx = piece["Set"].length;
+        running_header_title = "$:workTitle:"
     }
+
+    return {
+        "{{Work Title}}":           piece["Set"],
+        "{{Work Title Primary}}":   piece["Set"].substring(0, commaIdx),
+        "{{Work Title Secondary}}": piece["Set"].substring(commaIdx + 2),
+        "{{Running Header Title}}": running_header_title,
+        "{{Movement Number}}":      num + piece["Subdivision"],
+        "{{Mvt Title Prop}}":       piece["Piece / Movement"],
+        "{{Mvt Title Score}}":      num + piece["Subdivision"] + ". " + piece["Piece / Movement"],
+    };
 }
 
 function lyricist(piece, do_abbreviate_composer)
@@ -102,6 +117,29 @@ function first_name_first(name)
         return name; // no comma in name
     }
     return name.substring(idx + 2) + " " + name.substring(0, idx);
+}
+
+function abbreviate_artist_name(name)
+{
+    // name = "Beethoven, Ludwig van";
+    let commaIdx = name.indexOf(', '); // separator
+    if (commaIdx === -1)
+        return name;
+    let abbr = '';
+    name.substring(commaIdx + 2).split(" ").forEach((word, idx, words) => {
+        if (word.match(/^\(.*\)$/)) { // maiden name of female composer
+            if (idx > 0) {
+                abbr += " "
+            }
+            abbr += word;
+            if (idx + 1 < words.length) {
+                abbr += " "
+            }
+        } else { // normal name
+            abbr += word.substring(0, 1) + '.';
+        }
+    });
+    return abbr + " " + name.substring(0, commaIdx);
 }
 
 function imslp_artist(url)
