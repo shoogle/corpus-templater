@@ -89,10 +89,13 @@ function replacements_cycle(piece)
         running_header_title = "$:workTitle:"
     }
 
+    let work_number = piece["Set"].substring(commaIdx + 2);
+
     return {
         "{{Work Title}}":           piece["Set"],
+        "{{Work Number}}":          work_number,
         "{{Work Title Primary}}":   piece["Set"].substring(0, commaIdx),
-        "{{Work Title Secondary}}": piece["Set"].substring(commaIdx + 2),
+        "{{Work Title Secondary}}": work_number,
         "{{Running Header Title}}": running_header_title,
         "{{Movement Number}}":      num + piece["Subdivision"],
         "{{Mvt Title Prop}}":       piece["Piece / Movement"],
