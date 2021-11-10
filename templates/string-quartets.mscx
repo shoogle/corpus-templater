@@ -11,13 +11,17 @@
       <pageHeight>11.69</pageHeight>
       <enableVerticalSpread>1</enableVerticalSpread>
       <measureSpacing>1</measureSpacing>
+      <hairpinLinePosAbove x="0" y="-1.5"/>
+      <hairpinLinePosBelow x="0" y="2.5"/>
       <hairpinHeight>1.3</hairpinHeight>
       <evenHeaderC>$:composerAbbr: – {{Running Header Title}}</evenHeaderC>
       <oddHeaderC>$:composerAbbr: – {{Running Header Title}}</oddHeaderC>
       <tupletMaxSlope>0</tupletMaxSlope>
       <titleFontSize>20</titleFontSize>
       <subTitleFontSize>14</subTitleFontSize>
+      <headerFontSize>10</headerFontSize>
       <headerFontStyle>0</headerFontStyle>
+      <headerOffset x="0" y="-3"/>
       <user1Name>Work Title</user1Name>
       <user1FontSize>13</user1FontSize>
       <user1FontSpatiumDependent>0</user1FontSpatiumDependent>
@@ -31,7 +35,7 @@
     <showInvisible>1</showInvisible>
     <showUnprintable>1</showUnprintable>
     <showFrames>1</showFrames>
-    <showMargins>1</showMargins>
+    <showMargins>0</showMargins>
     <metaTag name="arranger">Transcribed from the IMSLP file(s) at https://imslp.org/wiki/Special:ReverseLookup/{{IMSLP Ref}}</metaTag>
     <metaTag name="composer">{{Composer}}</metaTag>
     <metaTag name="composerAbbr">{{Composer abbr.}}</metaTag>
@@ -408,7 +412,7 @@
       <TBox>
         <height>1</height>
         <topGap>0</topGap>
-        <topMargin>5</topMargin>
+        <topMargin>4</topMargin>
         <linkedMain/>
         <Text>
           <linkedMain/>
@@ -576,7 +580,7 @@
         </Measure>
       <TBox>
         <height>1</height>
-        <topMargin>7</topMargin>
+        <topMargin>4</topMargin>
         <linkedMain/>
         <Text>
           <linkedMain/>
@@ -711,7 +715,7 @@
         </Measure>
       <TBox>
         <height>1</height>
-        <topMargin>7</topMargin>
+        <topMargin>4</topMargin>
         <linkedMain/>
         <Text>
           <linkedMain/>
@@ -846,7 +850,7 @@
         </Measure>
       <TBox>
         <height>1</height>
-        <topMargin>7</topMargin>
+        <topMargin>4</topMargin>
         <linkedMain/>
         <Text>
           <linkedMain/>
@@ -970,20 +974,31 @@
         </Measure>
       <TBox>
         <height>1</height>
-        <topMargin>8.65</topMargin>
+        <topMargin>4</topMargin>
         <linkedMain/>
         <Text>
           <linkedMain/>
           <style>Frame</style>
           <size>8</size>
           <color r="128" g="0" b="128" a="255"/>
-          <text><b><u>Style changes for OpenScore String Quartets (differences from MuseScore's default style)
+          <text><b><u>Style changes for OpenScore String Quartets (differences from MuseScore's default style)</u></b><u></u>          Click above ^^^  to delete frame
 
-</u></b><u></u>Please ask in the group before making changes to styles. Try to provide evidence that your desired style is standard engraving practice.
+Please ask in the group before making changes to styles. Try to provide evidence that your desired style is standard engraving practice.
 
 <b>1. Format &gt; Style... &gt; Text Styles
 
-</b>    User-1:
+</b>    Title:
+        Size: 20.0 pt
+
+    Subtitle:
+        Size: 14.00 pt
+
+    Header:
+        Size: 10.00 pt
+        Style: Normal (not bold, italic, or underlined)
+        Offset X: 0 mm, Y: -3.00 mm
+
+    User-1:
         Name: Work Title (somewhat similar to Subtitle text style, but appears at the very top of the vertical frame)
         Size: 13.00 pt
         Follow stave size: false
@@ -1012,7 +1027,19 @@
 
 <b>4. Format &gt; Style... &gt; Hairpins
 
-</b>    Height: increase to 1.30 sp (make &quot;jaws&quot; slightly wider)</text>
+</b>    Height: increase to 1.30 sp (make &quot;jaws&quot; slightly wider)
+
+<b>5. Format &gt; Style... &gt; Header,Footer
+
+</b>    Header:
+        Middle odd &amp; even pages:
+            In the score: $:composerAbbr: – {{Running Header Title}}
+            In the parts: $:composerAbbr: – {{Running Header Title}} – $I
+
+6<b>. Workaround for cresc. &amp; dim. lines
+
+</b>    Want to set Offset Y Above: -1.5 sp, Below: 2.5 sp to align with hairpins &amp; dynamics, but this is not exposed in Format &gt; Style... so instead we
+    add a cresc. line above and below each staff, adjust Y offsets via the Inspector, click 'S' (&quot;Set as style&quot; button), repeat for each Part, delete lines.</text>
           </Text>
         </TBox>
       </Staff>
@@ -2427,13 +2454,17 @@
         <pageHeight>11.69</pageHeight>
         <enableVerticalSpread>1</enableVerticalSpread>
         <measureSpacing>1</measureSpacing>
+        <hairpinLinePosAbove x="0" y="-1.5"/>
+        <hairpinLinePosBelow x="0" y="2.5"/>
         <hairpinHeight>1.3</hairpinHeight>
         <evenHeaderC>$:composerAbbr: – {{Running Header Title}} – $I</evenHeaderC>
         <oddHeaderC>$:composerAbbr: – {{Running Header Title}} – $I</oddHeaderC>
         <tupletMaxSlope>0</tupletMaxSlope>
         <titleFontSize>20</titleFontSize>
         <subTitleFontSize>14</subTitleFontSize>
+        <headerFontSize>10</headerFontSize>
         <headerFontStyle>0</headerFontStyle>
+        <headerOffset x="0" y="-3"/>
         <user1Name>Work Title</user1Name>
         <user1FontSize>13</user1FontSize>
         <user1FontSpatiumDependent>0</user1FontSpatiumDependent>
@@ -2569,7 +2600,7 @@
         <TBox>
           <height>1</height>
           <topGap>0</topGap>
-          <topMargin>5</topMargin>
+          <topMargin>4</topMargin>
           <linked>
             </linked>
           <Text>
@@ -2748,7 +2779,7 @@
           </Measure>
         <TBox>
           <height>1</height>
-          <topMargin>7</topMargin>
+          <topMargin>4</topMargin>
           <linked>
             </linked>
           <Text>
@@ -2896,7 +2927,7 @@
           </Measure>
         <TBox>
           <height>1</height>
-          <topMargin>7</topMargin>
+          <topMargin>4</topMargin>
           <linked>
             </linked>
           <Text>
@@ -3044,7 +3075,7 @@
           </Measure>
         <TBox>
           <height>1</height>
-          <topMargin>7</topMargin>
+          <topMargin>4</topMargin>
           <linked>
             </linked>
           <Text>
@@ -3182,48 +3213,18 @@
           </Measure>
         <TBox>
           <height>1</height>
-          <topMargin>8.65</topMargin>
+          <topMargin>4</topMargin>
           <linked>
             </linked>
           <Text>
             <style>Frame</style>
+            <size>8</size>
             <color r="128" g="0" b="128" a="255"/>
             <text><b><u>Style changes for OpenScore String Quartets (differences from MuseScore's default style)
+</u></b><u></u>
+See the main score. This frame will be deleted automatically when you delete the corresponding frame in the main score.
 
-</u></b><u></u>Please ask in the group before making changes to styles. Try to provide evidence that your desired style is standard engraving practice.
-
-<b>1. Format &gt; Style... &gt; Text Styles
-
-</b>    User-1:
-        Name: Work Title (somewhat similar to Subtitle text style, but appears at the very top of the vertical frame)
-        Size: 13.00 pt
-        Follow stave size: false
-        Align H: Center
-
-    User-2:
-        Name: Movement Title (somewhat similar to Title text style)
-        Size: 16.00 pt
-        Follow stave size: false
-        Align H: Center
-
-<u>Tips:
-</u>1. If a piece has a very long title, the font size for Movement Title may be too large. If this occurs then you should reduce the font size via
-    the Inspector. Do not update the font size of the text style otherwise the change will be overitten via Format &gt; Load Style.
-2. Don't create custom text styles for frontmatter text (cover pages, table of contents, etc.). Changing the style of a large body of text usually
-    necessitates moving line breaks to different places and other manual corrections, so there is little advantage to having an automatic style.
-
-<b>2. Format &gt; Style... &gt; Bar / Measure
-
-</b>    Spacing: decrease to 1.0 (pack notes tightly, rely on manual system breaks to provide spacing. See https://musescore.org/en/node/280099)
-
-<b>3. Format &gt; Style... &gt; Tuplets
-
-</b>    Vertical Distance from Notes:
-        Maximum Slope: decrease to 0.00 (keep tuplet brackets flat to avoid variation. See https://musescore.org/en/node/294098#comment-996394)
-
-<b>4. Format &gt; Style... &gt; Hairpins
-
-</b>    Height: increase to 1.30 sp (make &quot;jaws&quot; slightly wider)</text>
+If you just delete the text in the main score and not the actual frame then this text will still be visible in the parts.</text>
             </Text>
           </TBox>
         </Staff>
@@ -3238,13 +3239,17 @@
         <pageHeight>11.69</pageHeight>
         <enableVerticalSpread>1</enableVerticalSpread>
         <measureSpacing>1</measureSpacing>
+        <hairpinLinePosAbove x="0" y="-1.5"/>
+        <hairpinLinePosBelow x="0" y="2.5"/>
         <hairpinHeight>1.3</hairpinHeight>
         <evenHeaderC>$:composerAbbr: – {{Running Header Title}} – $I</evenHeaderC>
         <oddHeaderC>$:composerAbbr: – {{Running Header Title}} – $I</oddHeaderC>
         <tupletMaxSlope>0</tupletMaxSlope>
         <titleFontSize>20</titleFontSize>
         <subTitleFontSize>14</subTitleFontSize>
+        <headerFontSize>10</headerFontSize>
         <headerFontStyle>0</headerFontStyle>
+        <headerOffset x="0" y="-3"/>
         <user1Name>Work Title</user1Name>
         <user1FontSize>13</user1FontSize>
         <user1FontSpatiumDependent>0</user1FontSpatiumDependent>
@@ -3394,7 +3399,7 @@
         <TBox>
           <height>1</height>
           <topGap>0</topGap>
-          <topMargin>5</topMargin>
+          <topMargin>4</topMargin>
           <linked>
             <location>
               <staves>-1</staves>
@@ -3581,7 +3586,7 @@
           </Measure>
         <TBox>
           <height>1</height>
-          <topMargin>7</topMargin>
+          <topMargin>4</topMargin>
           <linked>
             <location>
               <staves>-1</staves>
@@ -3739,7 +3744,7 @@
           </Measure>
         <TBox>
           <height>1</height>
-          <topMargin>7</topMargin>
+          <topMargin>4</topMargin>
           <linked>
             <location>
               <staves>-1</staves>
@@ -3897,7 +3902,7 @@
           </Measure>
         <TBox>
           <height>1</height>
-          <topMargin>7</topMargin>
+          <topMargin>4</topMargin>
           <linked>
             <location>
               <staves>-1</staves>
@@ -4042,7 +4047,7 @@
           </Measure>
         <TBox>
           <height>1</height>
-          <topMargin>8.65</topMargin>
+          <topMargin>4</topMargin>
           <linked>
             <location>
               <staves>-1</staves>
@@ -4050,43 +4055,13 @@
             </linked>
           <Text>
             <style>Frame</style>
+            <size>8</size>
             <color r="128" g="0" b="128" a="255"/>
             <text><b><u>Style changes for OpenScore String Quartets (differences from MuseScore's default style)
+</u></b><u></u>
+See the main score. This frame will be deleted automatically when you delete the corresponding frame in the main score.
 
-</u></b><u></u>Please ask in the group before making changes to styles. Try to provide evidence that your desired style is standard engraving practice.
-
-<b>1. Format &gt; Style... &gt; Text Styles
-
-</b>    User-1:
-        Name: Work Title (somewhat similar to Subtitle text style, but appears at the very top of the vertical frame)
-        Size: 13.00 pt
-        Follow stave size: false
-        Align H: Center
-
-    User-2:
-        Name: Movement Title (somewhat similar to Title text style)
-        Size: 16.00 pt
-        Follow stave size: false
-        Align H: Center
-
-<u>Tips:
-</u>1. If a piece has a very long title, the font size for Movement Title may be too large. If this occurs then you should reduce the font size via
-    the Inspector. Do not update the font size of the text style otherwise the change will be overitten via Format &gt; Load Style.
-2. Don't create custom text styles for frontmatter text (cover pages, table of contents, etc.). Changing the style of a large body of text usually
-    necessitates moving line breaks to different places and other manual corrections, so there is little advantage to having an automatic style.
-
-<b>2. Format &gt; Style... &gt; Bar / Measure
-
-</b>    Spacing: decrease to 1.0 (pack notes tightly, rely on manual system breaks to provide spacing. See https://musescore.org/en/node/280099)
-
-<b>3. Format &gt; Style... &gt; Tuplets
-
-</b>    Vertical Distance from Notes:
-        Maximum Slope: decrease to 0.00 (keep tuplet brackets flat to avoid variation. See https://musescore.org/en/node/294098#comment-996394)
-
-<b>4. Format &gt; Style... &gt; Hairpins
-
-</b>    Height: increase to 1.30 sp (make &quot;jaws&quot; slightly wider)</text>
+If you just delete the text in the main score and not the actual frame then this text will still be visible in the parts.</text>
             </Text>
           </TBox>
         </Staff>
@@ -4101,13 +4076,17 @@
         <pageHeight>11.69</pageHeight>
         <enableVerticalSpread>1</enableVerticalSpread>
         <measureSpacing>1</measureSpacing>
+        <hairpinLinePosAbove x="0" y="-1.5"/>
+        <hairpinLinePosBelow x="0" y="2.5"/>
         <hairpinHeight>1.3</hairpinHeight>
         <evenHeaderC>$:composerAbbr: – {{Running Header Title}} – $I</evenHeaderC>
         <oddHeaderC>$:composerAbbr: – {{Running Header Title}} – $I</oddHeaderC>
         <tupletMaxSlope>0</tupletMaxSlope>
         <titleFontSize>20</titleFontSize>
         <subTitleFontSize>14</subTitleFontSize>
+        <headerFontSize>10</headerFontSize>
         <headerFontStyle>0</headerFontStyle>
+        <headerOffset x="0" y="-3"/>
         <user1Name>Work Title</user1Name>
         <user1FontSize>13</user1FontSize>
         <user1FontSpatiumDependent>0</user1FontSpatiumDependent>
@@ -4259,7 +4238,7 @@
         <TBox>
           <height>1</height>
           <topGap>0</topGap>
-          <topMargin>5</topMargin>
+          <topMargin>4</topMargin>
           <linked>
             <location>
               <staves>-2</staves>
@@ -4446,7 +4425,7 @@
           </Measure>
         <TBox>
           <height>1</height>
-          <topMargin>7</topMargin>
+          <topMargin>4</topMargin>
           <linked>
             <location>
               <staves>-2</staves>
@@ -4604,7 +4583,7 @@
           </Measure>
         <TBox>
           <height>1</height>
-          <topMargin>7</topMargin>
+          <topMargin>4</topMargin>
           <linked>
             <location>
               <staves>-2</staves>
@@ -4762,7 +4741,7 @@
           </Measure>
         <TBox>
           <height>1</height>
-          <topMargin>7</topMargin>
+          <topMargin>4</topMargin>
           <linked>
             <location>
               <staves>-2</staves>
@@ -4907,7 +4886,7 @@
           </Measure>
         <TBox>
           <height>1</height>
-          <topMargin>8.65</topMargin>
+          <topMargin>4</topMargin>
           <linked>
             <location>
               <staves>-2</staves>
@@ -4915,43 +4894,13 @@
             </linked>
           <Text>
             <style>Frame</style>
+            <size>8</size>
             <color r="128" g="0" b="128" a="255"/>
             <text><b><u>Style changes for OpenScore String Quartets (differences from MuseScore's default style)
+</u></b><u></u>
+See the main score. This frame will be deleted automatically when you delete the corresponding frame in the main score.
 
-</u></b><u></u>Please ask in the group before making changes to styles. Try to provide evidence that your desired style is standard engraving practice.
-
-<b>1. Format &gt; Style... &gt; Text Styles
-
-</b>    User-1:
-        Name: Work Title (somewhat similar to Subtitle text style, but appears at the very top of the vertical frame)
-        Size: 13.00 pt
-        Follow stave size: false
-        Align H: Center
-
-    User-2:
-        Name: Movement Title (somewhat similar to Title text style)
-        Size: 16.00 pt
-        Follow stave size: false
-        Align H: Center
-
-<u>Tips:
-</u>1. If a piece has a very long title, the font size for Movement Title may be too large. If this occurs then you should reduce the font size via
-    the Inspector. Do not update the font size of the text style otherwise the change will be overitten via Format &gt; Load Style.
-2. Don't create custom text styles for frontmatter text (cover pages, table of contents, etc.). Changing the style of a large body of text usually
-    necessitates moving line breaks to different places and other manual corrections, so there is little advantage to having an automatic style.
-
-<b>2. Format &gt; Style... &gt; Bar / Measure
-
-</b>    Spacing: decrease to 1.0 (pack notes tightly, rely on manual system breaks to provide spacing. See https://musescore.org/en/node/280099)
-
-<b>3. Format &gt; Style... &gt; Tuplets
-
-</b>    Vertical Distance from Notes:
-        Maximum Slope: decrease to 0.00 (keep tuplet brackets flat to avoid variation. See https://musescore.org/en/node/294098#comment-996394)
-
-<b>4. Format &gt; Style... &gt; Hairpins
-
-</b>    Height: increase to 1.30 sp (make &quot;jaws&quot; slightly wider)</text>
+If you just delete the text in the main score and not the actual frame then this text will still be visible in the parts.</text>
             </Text>
           </TBox>
         </Staff>
@@ -4966,13 +4915,17 @@
         <pageHeight>11.69</pageHeight>
         <enableVerticalSpread>1</enableVerticalSpread>
         <measureSpacing>1</measureSpacing>
+        <hairpinLinePosAbove x="0" y="-1.5"/>
+        <hairpinLinePosBelow x="0" y="2.5"/>
         <hairpinHeight>1.3</hairpinHeight>
         <evenHeaderC>$:composerAbbr: – {{Running Header Title}} – $I</evenHeaderC>
         <oddHeaderC>$:composerAbbr: – {{Running Header Title}} – $I</oddHeaderC>
         <tupletMaxSlope>0</tupletMaxSlope>
         <titleFontSize>20</titleFontSize>
         <subTitleFontSize>14</subTitleFontSize>
+        <headerFontSize>10</headerFontSize>
         <headerFontStyle>0</headerFontStyle>
+        <headerOffset x="0" y="-3"/>
         <user1Name>Work Title</user1Name>
         <user1FontSize>13</user1FontSize>
         <user1FontSpatiumDependent>0</user1FontSpatiumDependent>
@@ -5123,7 +5076,7 @@
         <TBox>
           <height>1</height>
           <topGap>0</topGap>
-          <topMargin>5</topMargin>
+          <topMargin>4</topMargin>
           <linked>
             <location>
               <staves>-3</staves>
@@ -5310,7 +5263,7 @@
           </Measure>
         <TBox>
           <height>1</height>
-          <topMargin>7</topMargin>
+          <topMargin>4</topMargin>
           <linked>
             <location>
               <staves>-3</staves>
@@ -5478,7 +5431,7 @@
           </Measure>
         <TBox>
           <height>1</height>
-          <topMargin>7</topMargin>
+          <topMargin>4</topMargin>
           <linked>
             <location>
               <staves>-3</staves>
@@ -5636,7 +5589,7 @@
           </Measure>
         <TBox>
           <height>1</height>
-          <topMargin>7</topMargin>
+          <topMargin>4</topMargin>
           <linked>
             <location>
               <staves>-3</staves>
@@ -5781,7 +5734,7 @@
           </Measure>
         <TBox>
           <height>1</height>
-          <topMargin>8.65</topMargin>
+          <topMargin>4</topMargin>
           <linked>
             <location>
               <staves>-3</staves>
@@ -5789,43 +5742,13 @@
             </linked>
           <Text>
             <style>Frame</style>
+            <size>8</size>
             <color r="128" g="0" b="128" a="255"/>
             <text><b><u>Style changes for OpenScore String Quartets (differences from MuseScore's default style)
+</u></b><u></u>
+See the main score. This frame will be deleted automatically when you delete the corresponding frame in the main score.
 
-</u></b><u></u>Please ask in the group before making changes to styles. Try to provide evidence that your desired style is standard engraving practice.
-
-<b>1. Format &gt; Style... &gt; Text Styles
-
-</b>    User-1:
-        Name: Work Title (somewhat similar to Subtitle text style, but appears at the very top of the vertical frame)
-        Size: 13.00 pt
-        Follow stave size: false
-        Align H: Center
-
-    User-2:
-        Name: Movement Title (somewhat similar to Title text style)
-        Size: 16.00 pt
-        Follow stave size: false
-        Align H: Center
-
-<u>Tips:
-</u>1. If a piece has a very long title, the font size for Movement Title may be too large. If this occurs then you should reduce the font size via
-    the Inspector. Do not update the font size of the text style otherwise the change will be overitten via Format &gt; Load Style.
-2. Don't create custom text styles for frontmatter text (cover pages, table of contents, etc.). Changing the style of a large body of text usually
-    necessitates moving line breaks to different places and other manual corrections, so there is little advantage to having an automatic style.
-
-<b>2. Format &gt; Style... &gt; Bar / Measure
-
-</b>    Spacing: decrease to 1.0 (pack notes tightly, rely on manual system breaks to provide spacing. See https://musescore.org/en/node/280099)
-
-<b>3. Format &gt; Style... &gt; Tuplets
-
-</b>    Vertical Distance from Notes:
-        Maximum Slope: decrease to 0.00 (keep tuplet brackets flat to avoid variation. See https://musescore.org/en/node/294098#comment-996394)
-
-<b>4. Format &gt; Style... &gt; Hairpins
-
-</b>    Height: increase to 1.30 sp (make &quot;jaws&quot; slightly wider)</text>
+If you just delete the text in the main score and not the actual frame then this text will still be visible in the parts.</text>
             </Text>
           </TBox>
         </Staff>
