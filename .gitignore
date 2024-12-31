@@ -8,6 +8,7 @@
 *~
 .mscbackup
 .*,
+*.autosave
 
 # JavaScript generated files
 *.jsc

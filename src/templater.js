@@ -6,8 +6,8 @@ const gid = url_query_string.get('gid');
 const hrow = url_query_string.get('hrow');
 
 const spreadsheet_url = "https://docs.google.com/spreadsheets/d/" + sid + "/export?gid=" + gid + "&format=csv";
-//const spreadsheet_url = "https://cors-anywhere.herokuapp.com/" + spreadsheet_url; // use if CORS header missing
-//const spreadsheet_url = "data/" + corpus + ".csv"; // use for offline development
+//spreadsheet_url = "https://cors-anywhere.herokuapp.com/" + spreadsheet_url; // use if CORS header missing
+//spreadsheet_url = "data/" + corpus + ".csv"; // Offline dev. Won't work due to CORS policy for 'file:' protocol.
 
 document.title = "Corpus Templater: " + corpus
 document.getElementById("corpus").innerHTML = corpus;
