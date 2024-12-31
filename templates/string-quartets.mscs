@@ -629,7 +629,7 @@
     <defaultSystemFlag>0</defaultSystemFlag>
     <defaultText></defaultText>
     <titleFontFace>Edwin</titleFontFace>
-    <titleFontSize>22</titleFontSize>
+    <titleFontSize>20</titleFontSize>
     <titleLineSpacing>1</titleLineSpacing>
     <titleFontSpatiumDependent>0</titleFontSpatiumDependent>
     <titleFontStyle>0</titleFontStyle>
@@ -1145,13 +1145,13 @@
     <guitarBendArrowHeight>1</guitarBendArrowHeight>
     <useCueSizeFretForGraceBends>0</useCueSizeFretForGraceBends>
     <headerFontFace>Edwin</headerFontFace>
-    <headerFontSize>9</headerFontSize>
+    <headerFontSize>10</headerFontSize>
     <headerLineSpacing>1</headerLineSpacing>
     <headerFontSpatiumDependent>0</headerFontSpatiumDependent>
     <headerFontStyle>0</headerFontStyle>
     <headerColor r="0" g="0" b="0" a="255"/>
     <headerAlign>center,top</headerAlign>
-    <headerOffset x="0" y="0"/>
+    <headerOffset x="0" y="-3"/>
     <headerFrameType>0</headerFrameType>
     <headerFramePadding>0.2</headerFramePadding>
     <headerFrameWidth>0.1</headerFrameWidth>
@@ -1242,14 +1242,14 @@
     <figuredBassFontSpatiumDependent>1</figuredBassFontSpatiumDependent>
     <figuredBassFontStyle>0</figuredBassFontStyle>
     <figuredBassColor r="0" g="0" b="0" a="255"/>
-    <user1Name></user1Name>
+    <user1Name>Work title</user1Name>
     <user1FontFace>Edwin</user1FontFace>
-    <user1FontSize>10</user1FontSize>
+    <user1FontSize>13</user1FontSize>
     <user1LineSpacing>1</user1LineSpacing>
-    <user1FontSpatiumDependent>1</user1FontSpatiumDependent>
+    <user1FontSpatiumDependent>0</user1FontSpatiumDependent>
     <user1FontStyle>0</user1FontStyle>
     <user1Color r="0" g="0" b="0" a="255"/>
-    <user1Align>left,top</user1Align>
+    <user1Align>center,top</user1Align>
     <user1Offset x="0" y="0"/>
     <user1OffsetType>1</user1OffsetType>
     <user1FrameType>0</user1FrameType>
@@ -1258,14 +1258,14 @@
     <user1FrameRound>0</user1FrameRound>
     <user1FrameFgColor r="0" g="0" b="0" a="255"/>
     <user1FrameBgColor r="255" g="255" b="255" a="0"/>
-    <user2Name></user2Name>
+    <user2Name>Movement title</user2Name>
     <user2FontFace>Edwin</user2FontFace>
-    <user2FontSize>10</user2FontSize>
+    <user2FontSize>16</user2FontSize>
     <user2LineSpacing>1</user2LineSpacing>
-    <user2FontSpatiumDependent>1</user2FontSpatiumDependent>
+    <user2FontSpatiumDependent>0</user2FontSpatiumDependent>
     <user2FontStyle>0</user2FontStyle>
     <user2Color r="0" g="0" b="0" a="255"/>
-    <user2Align>left,top</user2Align>
+    <user2Align>center,top</user2Align>
     <user2Offset x="0" y="0"/>
     <user2OffsetType>1</user2OffsetType>
     <user2FrameType>0</user2FrameType>
@@ -1540,12 +1540,12 @@
   </museScore>
 ]]>
 </file>
-<file name="SQ.mscx">
+<file name="string-quartets.mscx">
 <![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <museScore version="4.40">
   <programVersion>4.4.4</programVersion>
   <programRevision>2232670</programRevision>
-  <LastEID>27806</LastEID>
+  <LastEID>35498</LastEID>
   <Score>
     <Division>480</Division>
     <showInvisible>1</showInvisible>
@@ -1750,8 +1750,7 @@
         <eid>29807073034363</eid>
         <Text>
           <eid>29811368001541</eid>
-          <style>frame</style>
-          <align>center,top</align>
+          <style>user_2</style>
           <text>I. Movement title if different to tempo/key</text>
           </Text>
         </TBox>
@@ -1770,7 +1769,7 @@
             <tempo>2</tempo>
             <followText>1</followText>
             <eid>2117418876975</eid>
-            <text>Template (<sym>metNoteQuarterUp</sym><font face="Edwin"></font> = 120)</text>
+            <text>Template (<sym>metNoteQuarterUp</sym><font face="Edwin"/> = 120)</text>
             </Tempo>
           <Rest>
             <eid>124554051610</eid>
@@ -1807,10 +1806,6 @@
           </voice>
         </Measure>
       <Measure>
-        <LayoutBreak>
-          <eid>5025111736401</eid>
-          <subtype>line</subtype>
-          </LayoutBreak>
         <voice>
           <Rest>
             <eid>279172874266</eid>
@@ -1926,8 +1921,7 @@
         <eid>32847909879931</eid>
         <Text>
           <eid>32852204847109</eid>
-          <style>frame</style>
-          <align>center,top</align>
+          <style>user_2</style>
           <text>II</text>
           </Text>
         </TBox>
@@ -1942,7 +1936,7 @@
             <tempo>1.333333</tempo>
             <followText>1</followText>
             <eid>75243532058671</eid>
-            <text>Template (<sym>metNoteQuarterUp</sym><font face="Edwin"></font> = 80)</text>
+            <text>Template (<sym>metNoteQuarterUp</sym><font face="Edwin"/> = 80)</text>
             </Tempo>
           <Rest>
             <eid>708669603866</eid>
@@ -2049,8 +2043,7 @@
         <eid>34724810588283</eid>
         <Text>
           <eid>34729105555461</eid>
-          <style>frame</style>
-          <align>center,top</align>
+          <style>user_2</style>
           <text>III</text>
           </Text>
         </TBox>
@@ -2065,7 +2058,7 @@
             <tempo>1.333333</tempo>
             <followText>1</followText>
             <eid>80895709020207</eid>
-            <text>Template (<sym>metNoteQuarterUp</sym><font face="Edwin"></font> = 80)</text>
+            <text>Template (<sym>metNoteQuarterUp</sym><font face="Edwin"/> = 80)</text>
             </Tempo>
           <Rest>
             <eid>1138166333466</eid>
@@ -2172,8 +2165,7 @@
         <eid>37203006718075</eid>
         <Text>
           <eid>37207301685253</eid>
-          <style>frame</style>
-          <align>center,top</align>
+          <style>user_2</style>
           <text>IV</text>
           </Text>
         </TBox>
@@ -2188,7 +2180,7 @@
             <tempo>1.333333</tempo>
             <followText>1</followText>
             <eid>84181359001647</eid>
-            <text>Template (<sym>metNoteQuarterUp</sym><font face="Edwin"></font> = 80)</text>
+            <text>Template (<sym>metNoteQuarterUp</sym><font face="Edwin"/> = 80)</text>
             </Tempo>
           <Rest>
             <eid>1567663063066</eid>
@@ -3677,48 +3669,6 @@
                 "resourceMeta": {
                     "attributes": {
                         "museCategory": "Muse Strings",
-                        "museName": "Violin 2 (Solo)",
-                        "musePack": "Muse Strings",
-                        "museUID": "104",
-                        "museVendorName": "Muse",
-                        "playbackSetupData": "strings.violin.orchestral:secondary"
-                    },
-                    "hasNativeEditorSupport": false,
-                    "id": "Muse Strings\\Violin 2 (Solo)\\104",
-                    "type": "muse_sampler_sound_pack",
-                    "vendor": "MuseSounds"
-                },
-                "unitConfiguration": {
-                }
-            },
-            "instrumentId": "violin",
-            "out": {
-                "auxSends": [
-                    {
-                        "active": true,
-                        "signalAmount": 0.4000000059604645
-                    },
-                    {
-                        "active": true,
-                        "signalAmount": 0.30000001192092896
-                    }
-                ],
-                "balance": 0,
-                "fxChain": {
-                },
-                "volumeDb": 0
-            },
-            "partId": "2",
-            "soloMuteState": {
-                "mute": false,
-                "solo": false
-            }
-        },
-        {
-            "in": {
-                "resourceMeta": {
-                    "attributes": {
-                        "museCategory": "Muse Strings",
                         "museName": "Violoncello (Solo)",
                         "musePack": "Muse Strings",
                         "museUID": "106",
@@ -3751,6 +3701,48 @@
                 "volumeDb": 0
             },
             "partId": "4",
+            "soloMuteState": {
+                "mute": false,
+                "solo": false
+            }
+        },
+        {
+            "in": {
+                "resourceMeta": {
+                    "attributes": {
+                        "museCategory": "Muse Strings",
+                        "museName": "Violin 2 (Solo)",
+                        "musePack": "Muse Strings",
+                        "museUID": "104",
+                        "museVendorName": "Muse",
+                        "playbackSetupData": "strings.violin.orchestral:secondary"
+                    },
+                    "hasNativeEditorSupport": false,
+                    "id": "Muse Strings\\Violin 2 (Solo)\\104",
+                    "type": "muse_sampler_sound_pack",
+                    "vendor": "MuseSounds"
+                },
+                "unitConfiguration": {
+                }
+            },
+            "instrumentId": "violin",
+            "out": {
+                "auxSends": [
+                    {
+                        "active": true,
+                        "signalAmount": 0.4000000059604645
+                    },
+                    {
+                        "active": true,
+                        "signalAmount": 0.30000001192092896
+                    }
+                ],
+                "balance": 0,
+                "fxChain": {
+                },
+                "volumeDb": 0
+            },
+            "partId": "2",
             "soloMuteState": {
                 "mute": false,
                 "solo": false
