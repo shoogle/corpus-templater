@@ -9,6 +9,8 @@ const spreadsheet_url = "https://docs.google.com/spreadsheets/d/" + sid + "/expo
 //spreadsheet_url = "https://cors-anywhere.herokuapp.com/" + spreadsheet_url; // use if CORS header missing
 //spreadsheet_url = "data/" + corpus + ".csv"; // Offline dev. Won't work due to CORS policy for 'file:' protocol.
 
+const extension = corpus === 'string-quartets' ? '.mscs' : '.mscx';
+
 document.title = "Corpus Templater: " + corpus
 document.getElementById("corpus").innerHTML = corpus;
 const headings_row = parseInt(hrow, 10);
@@ -219,7 +221,7 @@ async function proceed(text)
     }
     fname += "TEMPLATE"
     console.log("Created template: " + fname);
-    download_text_file(fname + ".mscx", text);
+    download_text_file(fname + extension, text);
     console.info("Enter a new row number to create another template. Do not \
 refresh the page unless you need to fetch an updated copy of the spreadsheet.");
 }
@@ -244,5 +246,5 @@ function create()
         pieces_request = fetch_text_file(spreadsheet_url, process);
     }
 
-    fetch_text_file("templates/" + corpus + ".mscx", proceed);
+    fetch_text_file("templates/" + corpus + extension, proceed);
 }
